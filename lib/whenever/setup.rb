@@ -26,6 +26,6 @@ set :runner_command, case
 set :bundle_command, Whenever.bundler? ? "bundle exec" : ""
 
 job_type :command, ":task :output"
-job_type :rake,    "cd :path && :environment_variable=:environment :bundle_command rake :task --silent :output"
+job_type :rake,    "cd :path && :environment_variable=:environment :bundle_command rails :task --silent :output"
 job_type :script,  "cd :path && :environment_variable=:environment :bundle_command script/:task :output"
 job_type :runner,  "cd :path && :bundle_command :runner_command -e :environment ':task' :output"
